@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rooms | EliteStay Hotel</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  </head>
+  <body>
+    <header id="navbar" data-aos="fade-down">
+      <nav class="navbar">
+        <div class="navbar__brand">
+          <a href="index.html" class="navbar__logo">
+            <i class="fa-solid fa-hotel"></i>
+            <span class="brand-title">EliteStay</span>
+          </a>
+        </div>
+        <ul class="navbar__links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="rooms.html" class="nav-link dropdown-toggle"
+              >Rooms <i class="fa-solid fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="rooms.html#standard" class="dropdown-item">Standard</a>
+              </li>
+              <li>
+                <a href="rooms.html#deluxe" class="dropdown-item">Deluxe</a>
+              </li>
+              <li>
+                <a href="rooms.html#suite" class="dropdown-item">Suite</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#facilities" class="nav-link">Facilities</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button id="theme-toggle" class="icon-btn" title="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="logout-btn" class="btn nav-auth-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+          </button>
+          <div id="account-icon" class="account-icon hidden">
+            <i class="fa-solid fa-user-circle"></i>
+          </div>
+          <button
+            class="icon-btn navbar__hamburger"
+            id="hamburger-menu"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+      <div class="navbar__mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="rooms.html" class="nav-link dropdown-toggle"
+              >Rooms <i class="fa-solid fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="rooms.html#standard" class="dropdown-item">Standard</a>
+              </li>
+              <li>
+                <a href="rooms.html#deluxe" class="dropdown-item">Deluxe</a>
+              </li>
+              <li>
+                <a href="rooms.html#suite" class="dropdown-item">Suite</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#facilities" class="nav-link">Facilities</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <button id="mobile-theme-toggle" class="icon-btn">
+              <i class="fa-solid fa-moon"></i> Theme
+            </button>
+          </li>
+          <li>
+            <button id="mobile-login-btn" class="btn nav-auth-btn">
+              <i class="fa-solid fa-user"></i> Log In / Sign Up
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="rooms-list" data-aos="fade-up">
+        <h2 class="section-title">Our Rooms</h2>
+        <div class="room-filter-bar" data-aos="fade-up" data-aos-delay="100">
+          <input
+            type="text"
+            id="room-search"
+            class="room-search"
+            placeholder="Search by name..."
+          />
+          <select id="room-type-filter" class="room-type-filter">
+            <option value="">All Types</option>
+            <option value="Standard">Standard</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Suite">Suite</option>
+          </select>
+          <input
+            type="number"
+            id="min-price"
+            class="room-price-filter"
+            placeholder="Min Price"
+            min="0"
+          />
+          <input
+            type="number"
+            id="max-price"
+            class="room-price-filter"
+            placeholder="Max Price"
+            min="0"
+          />
+          <button id="room-filter-btn" class="btn">Filter</button>
+        </div>
+        <div class="rooms-grid" data-aos="fade-up" data-aos-delay="200">
+          <div class="room-card" id="standard">
+            <div
+              class="room-img"
+              style="background-image: url('css/standardimg.webp')"
+            ></div>
+            <div class="room-info">
+              <h3>Standard Room</h3>
+              <div class="star-rating">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa-regular fa-star"></i>
+              </div>
+              <p>
+                Cozy and affordable for solo travelers. 1 Queen bed, Free Wi-Fi,
+                Ensuite bathroom.
+              </p>
+              <div class="room-actions">
+                <button class="btn view-btn" data-room="Standard Room">
+                  View Details
+                </button>
+                <button class="btn book-btn" data-room="Standard Room">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="room-card" id="deluxe">
+            <div
+              class="room-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80');
+              "
+            ></div>
+            <div class="room-info">
+              <h3>Deluxe Room</h3>
+              <div class="star-rating">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa fa-star"></i>
+              </div>
+              <p>
+                Spacious comfort with a touch of luxury. 1 King bed, City view,
+                Mini-bar.
+              </p>
+              <div class="room-actions">
+                <button class="btn view-btn" data-room="Deluxe Room">
+                  View Details
+                </button>
+                <button class="btn book-btn" data-room="Deluxe Room">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="room-card" id="suite">
+            <div
+              class="room-img"
+              style="background-image: url('css/suit1.jpeg')"
+            ></div>
+            <div class="room-info">
+              <h3>Suite</h3>
+              <div class="star-rating">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                ><i class="fa fa-star"></i>
+              </div>
+              <p>
+                Ultimate elegance for families or VIPs. 2 Bedrooms, Living area,
+                Jacuzzi.
+              </p>
+              <div class="room-actions">
+                <button class="btn view-btn" data-room="Suite">
+                  View Details
+                </button>
+                <button class="btn book-btn" data-room="Suite">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="room-modal" data-aos="zoom-in">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal">&times;</span>
+        <div id="modal-details"></div>
+      </div>
+    </div>
+    <div class="modal" id="booking-modal">
+      <div class="modal-content booking-modal-content">
+        <span class="close-modal" id="close-booking-modal">&times;</span>
+        <div class="booking-steps">
+          <div class="booking-step" id="booking-step-1">
+            <h3>Choose Your Dates</h3>
+            <input type="date" id="booking-checkin" required /> to
+            <input type="date" id="booking-checkout" required />
+            <button class="btn" id="booking-next-1">Next</button>
+          </div>
+          <div class="booking-step" id="booking-step-2" style="display: none">
+            <h3>Guest Information</h3>
+            <input
+              type="text"
+              id="booking-name"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              id="booking-email"
+              placeholder="Email"
+              required
+            />
+            <input type="tel" id="booking-phone" placeholder="Phone" required />
+            <button class="btn" id="booking-prev-2">Back</button>
+            <button class="btn" id="booking-next-2">Next</button>
+          </div>
+          <div class="booking-step" id="booking-step-3" style="display: none">
+            <h3>Confirm Booking</h3>
+            <div id="booking-summary"></div>
+            <button class="btn" id="booking-prev-3">Back</button>
+            <button class="btn" id="booking-confirm">Confirm</button>
+          </div>
+          <div class="booking-step" id="booking-step-4" style="display: none">
+            <h3>Booking Complete!</h3>
+            <p>
+              Thank you for booking with EliteStay. We look forward to your
+              stay!
+            </p>
+            <button class="btn" id="booking-close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer" data-aos="fade-up" data-aos-delay="300">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-title">EliteStay</span>
+          <p>Luxury & Comfort</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#featured-rooms">Rooms</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 EliteStay. All rights reserved.
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+    <div id="toast-container"></div>
+    <button id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+  </body>
+</html>

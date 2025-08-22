@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteStay Hotel</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <header id="navbar">
+      <nav class="navbar">
+        <div class="navbar__brand">
+          <a href="index.html" class="navbar__logo">
+            <i class="fa-solid fa-hotel"></i>
+            <span class="brand-title">EliteStay</span>
+          </a>
+        </div>
+        <ul class="navbar__links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="rooms.html" class="nav-link dropdown-toggle"
+              >Rooms <i class="fa-solid fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu" style="list-style: none">
+              <li>
+                <a href="rooms.html#standard" class="dropdown-item">Standard</a>
+              </li>
+              <li>
+                <a href="rooms.html#deluxe" class="dropdown-item">Deluxe</a>
+              </li>
+              <li>
+                <a href="rooms.html#suite" class="dropdown-item">Suite</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#facilities" class="nav-link">Facilities</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button id="theme-toggle" class="icon-btn" title="Toggle dark mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="logout-btn" class="btn nav-auth-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Log Out
+          </button>
+          <div id="account-icon" class="account-icon hidden">
+            <i class="fa-solid fa-user-circle"></i>
+          </div>
+          <button
+            class="icon-btn navbar__hamburger"
+            id="hamburger-menu"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+      <div class="navbar__mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="rooms.html" class="nav-link dropdown-toggle"
+              >Rooms <i class="fa-solid fa-caret-down"></i
+            ></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="rooms.html#standard" class="dropdown-item">Standard</a>
+              </li>
+              <li>
+                <a href="rooms.html#deluxe" class="dropdown-item">Deluxe</a>
+              </li>
+              <li>
+                <a href="rooms.html#suite" class="dropdown-item">Suite</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#facilities" class="nav-link">Facilities</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li>
+            <button id="mobile-theme-toggle" class="icon-btn">
+              <i class="fa-solid fa-moon"></i> Theme
+            </button>
+          </li>
+          <li>
+            <button id="mobile-login-btn" class="btn nav-auth-btn">
+              <i class="fa-solid fa-user"></i> Log In / Sign Up
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="hero" data-aos="fade-up">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to <span>EliteStay</span></h1>
+        <p class="hero-tagline">
+          Experience luxury, comfort, and elegance in every stay.
+        </p>
+        <button class="scroll-down" id="scroll-down-btn">
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="featured-rooms"
+      id="featured-rooms"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <h2 class="section-title">Featured Rooms</h2>
+      <div class="rooms-grid">
+        <div class="room-card">
+          <div
+            class="room-img"
+            style="background-image: url('css/standardimg.webp')"
+          ></div>
+          <div class="room-info">
+            <h3>Standard Room</h3>
+            <div class="star-rating">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa-regular fa-star"></i>
+            </div>
+            <p>Cozy and affordable for solo travelers.</p>
+            <button class="btn view-btn" data-room="Standard Room">
+              View Details
+            </button>
+          </div>
+        </div>
+        <div class="room-card">
+          <div
+            class="room-img"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80');
+            "
+          ></div>
+          <div class="room-info">
+            <h3>Deluxe Room</h3>
+            <div class="star-rating">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i>
+            </div>
+            <p>Spacious comfort with a touch of luxury.</p>
+            <button class="btn view-btn" data-room="Deluxe Room">
+              View Details
+            </button>
+          </div>
+        </div>
+        <div class="room-card">
+          <div
+            class="room-img"
+            style="background-image: url('css/suit1.jpeg')"
+          ></div>
+          <div class="room-info">
+            <h3>Suite</h3>
+            <div class="star-rating">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i><i class="fa fa-star"></i
+              ><i class="fa fa-star"></i>
+            </div>
+            <p>Ultimate elegance for families or VIPs.</p>
+            <button class="btn view-btn" data-room="Suite">View Details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="services"
+      id="facilities"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-wifi"></i>
+          <h4>Free Wi-Fi</h4>
+          <p>High-speed internet in all rooms and public areas.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h4>Restaurant</h4>
+          <p>Delicious cuisine served all day.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-dumbbell"></i>
+          <h4>Fitness Center</h4>
+          <p>Modern gym with personal trainers.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-spa"></i>
+          <h4>Spa & Wellness</h4>
+          <p>Relax and rejuvenate with our spa treatments.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-car"></i>
+          <h4>Free Parking</h4>
+          <p>Secure parking for all guests.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-swimming-pool"></i>
+          <h4>Swimming Pool</h4>
+          <p>Outdoor pool with a beautiful view.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" data-aos="fade-up" data-aos-delay="300">
+      <h2 class="section-title">What Our Guests Say</h2>
+      <div class="testimonials-slider" id="testimonials-slider">
+        <div class="testimonial active">
+          <div class="star-rating">
+            <i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa-regular fa-star"></i>
+          </div>
+          <p>
+            “EliteStay exceeded my expectations! The staff were so friendly and
+            the room was spotless.”
+          </p>
+          <span>- Sarah M.</span>
+        </div>
+        <div class="testimonial">
+          <div class="star-rating">
+            <i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa fa-star"></i>
+          </div>
+          <p>
+            “The best hotel experience I’ve ever had. The spa and pool are
+            amazing!”
+          </p>
+          <span>- Ahmed R.</span>
+        </div>
+        <div class="testimonial">
+          <div class="star-rating">
+            <i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa fa-star"></i><i class="fa fa-star"></i
+            ><i class="fa fa-star"></i>
+          </div>
+          <p>
+            “Perfect location, delicious food, and super comfy beds. Highly
+            recommend!”
+          </p>
+          <span>- Julia K.</span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="contact"
+      id="contact"
+      data-aos="fade-up"
+      data-aos-delay="500"
+    >
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-content">
+        <form class="contact-form" id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i> elitestay@gmail.com
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i> +1 234 567 890
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i> 123 Main St, City, Country
+          </div>
+          <div class="social-icons">
+            <a href="#" title="Facebook"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a href="#" title="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <div
+            id="contact-map"
+            style="width: 100%; height: 180px; border-radius: 0.7rem"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" data-aos="fade-up" data-aos-delay="400">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            What time is check-in and check-out?
+          </button>
+          <div class="faq-answer">
+            Check-in is from 2:00 PM, and check-out is until 12:00 PM.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is breakfast included in the room rate?
+          </button>
+          <div class="faq-answer">
+            Yes, a complimentary breakfast buffet is included with every room
+            booking.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer airport shuttle service?
+          </button>
+          <div class="faq-answer">
+            Yes, we provide airport shuttle service for an additional fee.
+            Please contact us in advance to arrange it.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I cancel or modify my reservation?
+          </button>
+          <div class="faq-answer">
+            Yes, you can cancel or modify your reservation up to 24 hours before
+            arrival without penalty.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are pets allowed at the hotel?</button>
+          <div class="faq-answer">
+            Unfortunately, pets are not allowed except for service animals.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-title">EliteStay</span>
+          <p>Luxury & Comfort</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#featured-rooms">Rooms</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 EliteStay. All rights reserved.
+      </div>
+    </footer>
+
+    <div class="modal" id="room-modal">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal">&times;</span>
+        <div id="modal-details"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="auth-modal">
+      <div class="modal-content auth-modal-content">
+        <span class="close-modal" id="close-auth-modal">&times;</span>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="login-tab">Log In</button>
+          <button class="auth-tab" id="signup-tab">Sign Up</button>
+        </div>
+        <div class="auth-forms-wrapper">
+          <form class="auth-form active" id="login-form">
+            <input
+              type="text"
+              name="login-username"
+              placeholder="Username or Email"
+              required
+            />
+            <input
+              type="password"
+              name="login-password"
+              placeholder="Password"
+              required
+            />
+            <button type="submit" class="btn">Log In</button>
+          </form>
+          <form class="auth-form" id="signup-form">
+            <input
+              type="text"
+              name="signup-username"
+              placeholder="Username"
+              required
+            />
+            <input
+              type="email"
+              name="signup-email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              name="signup-password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="password"
+              name="signup-confirm"
+              placeholder="Confirm Password"
+              required
+            />
+            <button type="submit" class="btn">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+    <button id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      if (document.getElementById("contact-map")) {
+        var map = L.map("contact-map").setView([30.0494, 31.2421], 15);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap",
+        }).addTo(map);
+        L.marker([30.0494, 31.2421])
+          .addTo(map)
+          .bindPopup("EliteStay Hotel")
+          .openPopup();
+      }
+    </script>
+  </body>
+</html>
