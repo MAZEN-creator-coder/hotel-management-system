@@ -183,9 +183,9 @@ Modify CSS variables in `css/style.css`:
 
 This project was developed by:
 
-- **Mazen Ahmed** - Frontend Development & UI/UX Design
-- **Mohamed Amgad** - JavaScript Functionality & User Experience
-- **Ahmed Hussin** - Responsive Design & Cross-browser Compatibility
+- **Mazen Ahmed** 
+- **Mohamed Amgad** 
+- **Ahmed Hussin** 
 
 ## 📄 License
 
