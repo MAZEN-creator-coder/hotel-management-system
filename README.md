@@ -202,7 +202,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support and questions:
-- Email: elitestay@gmail.com
+- Email: gshshmazen@gmail.com
 - Phone: +1 234 567 890
 - Address: 123 Main St, City, Country
 
